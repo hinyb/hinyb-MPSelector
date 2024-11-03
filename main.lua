@@ -1,14 +1,4 @@
-mods.on_all_mods_loaded(function()
-    for _, m in pairs(mods) do
-        if type(m) == "table" and m.RoRR_Modding_Toolkit then
-            for _, c in ipairs(m.Classes) do
-                if m[c] then
-                    _G[c] = m[c]
-                end
-            end
-        end
-    end
-end)
+mods["RoRRModdingToolkit-RoRR_Modding_Toolkit"].auto()
 
 mods.on_all_mods_loaded(function()
     for k, v in pairs(mods) do
@@ -26,10 +16,10 @@ MPselector = true
 
 local other_player_list = {}
 local select_player_index = 1
-
+local select_player
 gm.post_script_hook(gm.constants.hud_draw_health, function(self, other, result, args)
     if other_player_list[select_player_index] ~= nil then
-        if args[1].value.m_id == other_player_list[select_player_index].m_id then
+        if args[1].value.object_index == gm.constants.oP and args[1].value.m_id == other_player_list[select_player_index].m_id then
             gm.draw_set_color(Color.WHITE)
             local x = args[3].value + args[5].value
             local y = args[4].value
@@ -47,6 +37,7 @@ end)
 gm.post_script_hook(gm.constants.run_create, function(self, other, result, args)
     other_player_list = {}
     select_player_index = 1
+    select_player = nil
 end)
 local function select_next_player()
     if #other_player_list ~= 0 then
