@@ -1,11 +1,11 @@
 {
 	"name": "MPSelector",
-	"version_number": "1.0.1",
+	"version_number": "1.0.2",
 	"website_url": "https://github.com/hinyb/hinyb-MPSelector",
 	"description": "Add a small feature to select player.",
 	"dependencies": [
-		"ReturnOfModding-ReturnOfModding-1.0.48",
-		"RoRRModdingToolkit-RoRR_Modding_Toolkit-1.1.25",
+		"ReturnOfModding-ReturnOfModding-1.0.55",
+		"RoRRModdingToolkit-RoRR_Modding_Toolkit-1.2.0",
 		"SmoothSpatula-TomlHelper-1.0.1"
 	]
 }
